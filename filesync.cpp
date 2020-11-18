@@ -10,9 +10,8 @@
 #include <ws2tcpip.h>
 #include <iphlpapi.h>
 #include <stdio.h>
-
 #include <iostream>
-#include "../common/common.h"
+#include <common.h>
 
 #define DEFAULT_PORT "8083"
 #define DEFAULT_BUFLEN 512
