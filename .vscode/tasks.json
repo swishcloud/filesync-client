@@ -1,0 +1,57 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "cmake_task",
+			"type": "shell",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"command": "cmake --build ${workspaceRoot}\\build",
+		},
+		{
+			"type": "shell",
+			"label": "client",
+			"command": "g++",
+			"args": [
+				"-g",
+				"filesync_client.cpp",
+				"common.cpp",
+				"tcp_client.cpp",
+				"-o",
+				"client.exe",
+				"-std=c++11",
+				"-lws2_32",
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		},
+		{
+			"type": "shell",
+			"label": "server task",
+			"command": "g++",
+			"args": [
+				"-g",
+				"filesync.cpp",
+				"common.cpp",
+				"-o",
+				"server.exe",
+				"-std=c++11",
+				"-lws2_32",
+				//"-D_GLIBCXX_USE_CXX11_ABI=0"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build"
+		}
+	]
+}
